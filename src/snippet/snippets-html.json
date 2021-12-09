@@ -33,7 +33,7 @@
   "fe-upload组件": {
     "prefix": "fe-upload",
     "scope": "vue",
-    "description": "fe-upload组件",
+    "description": "fe-upload组件-1",
     "body": [
       "<fe-upload",
       "  ref=\"UploadRef\"",
