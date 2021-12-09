@@ -1,0 +1,58 @@
+{
+  "name": "fe-snippets",
+  "displayName": "fe-snippets",
+  "description": "fe-snippets for VS Code",
+  "version": "1.0.0",
+  "publisher": "zlqqq333",
+  "repository": "https://github.com/zlq333/fe-snippets.git",
+  "engines": {
+    "vscode": "^1.32.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.helloWorld"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.helloWorld",
+        "title": "Hello World"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "html",
+        "path": "./src/snippet/snippets-html.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./src/snippet/snippets-ts.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "lint": "eslint . --ext .ts,.tsx",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^12.12.0",
+    "@types/vscode": "^1.32.0",
+    "@typescript-eslint/eslint-plugin": "^4.16.0",
+    "@typescript-eslint/parser": "^4.16.0",
+    "@vscode/test-electron": "^1.6.1",
+    "eslint": "^7.21.0",
+    "glob": "^7.1.4",
+    "mocha": "^6.1.4",
+    "source-map-support": "^0.5.12",
+    "typescript": "^4.2.2"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "fe-segment组件": {
+    "prefix": "fe-segment",
+    "scope": "vue",
+    "description": "fe-segment组件",
+    "body": [
+      "<fe-segment",
+      "  title=\"基础信息\"",
+      "  headerType=\"inline\"",
+      ">",
+      "  <fe-segment-item :items=\"basicInfoItems\" />",
+      "</fe-segment>"
+    ]
+  },
+  "fe-table组件": {
+    "prefix": "fe-table",
+    "scope": "vue",
+    "description": "fe-table组件",
+    "body": [
+      "<fe-table",
+      "  border",
+      "  :tableData=\"tableUse.data\"",
+      "  :columns=\"tableColumns\"",
+      "  :show-pagination=\"true\"",
+      "  :pagination-config=\"tableUse.pagination\"",
+      "  @pagination-current-change=\"tableUse.pageCurrentChange\"",
+      "  @pagination-size-change=\"tableUse.pageSizeChange\"",
+      "  row-class-name=\"pointer\"",
+      ">",
+      "</fe-table>"
+    ]
+  },
+  "fe-upload组件": {
+    "prefix": "fe-upload",
+    "scope": "vue",
+    "description": "fe-upload组件",
+    "body": [
+      "<fe-upload",
+      "  ref=\"UploadRef\"",
+      "  :action=\"uploadAction\"",
+      "  :limit=\"1\"",
+      "  :maxSize=\"20\"",
+      "  :defaultFiles=\"defaultFiles\"",
+      "/>"
+    ]
+  },
+  "vue初始化模板": {
+    "prefix": "vue-template",
+    "scope": "vue",
+    "description": "vue初始化模板",
+    "body": [
+      "<template>",
+      "  <div class=\"content-page\"></div>",
+      "</template>",
+      "",
+      "<script lang=\"ts\" setup>",
+      "import { ref, reactive, defineComponent } from 'vue';",
+      "import { useRouter, useRoute } from 'vue-router';",
+      "import { useStore } from 'vuex';",
+      "import api from '@/api/api';",
+      "import { XHR } from '@/utils/XHR';",
+      "import { getStorage, arrayGive } from '@fe/utils';",
+      "</script>",
+      "<style lang=\"postcss\"></style>",
+      ""
+    ]
+  }
+}
