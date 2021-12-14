@@ -122,7 +122,7 @@
   },
   "consoleLogObject": {
     "prefix": "clo",
-    "body": "console.log('${1:object}', ${1:object});",
+    "body": "console.log('${1}', ${1});",
     "description": "Displays an object in the console with its name"
   },
   "consoleTrace": {
@@ -134,5 +134,14 @@
     "prefix": "cwa",
     "body": "console.warn(${1:object});",
     "description": "Displays a message in the console but also displays a yellow warning icon along with the logged message"
+  },
+  "use useTable": {
+    "prefix": "tableUse",
+    "scope": "vue",
+    "description": "use useTable，get tableUse",
+    "body": [
+      "const tableUse = useTable({ tableOptions, axiosConfig: { url: api.${1} } });\r",
+      "tableUse.search();"
+    ]
   }
 }

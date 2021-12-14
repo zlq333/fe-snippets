@@ -13,6 +13,11 @@
       .content {
         padding: 100px;
         background-color: #fff;
+        color: #000;
+        font-size: 16px;
+      }
+      .ml-20 {
+        margin-left: 20px;
       }
     </style>
   </head>
@@ -31,6 +36,21 @@
             >
           </el-form-item>
         </el-form>
+        <p>git地址设置规则：</p>
+        <p class="ml-20">
+          git地址由4部分组成，以<a href="https://github.com/zlq333/gitclonedemo"
+            >github:zlq333/gitclonedemo#main</a
+          >为例
+        </p>
+        <p class="ml-20">
+          gitHub：代码托管平台 插件<a
+            href="https://www.npmjs.com/package/download-git-repo"
+            >download-git-repo</a
+          >目前只支持GitHub、GitLab、Bitbucket
+        </p>
+        <p class="ml-20">zlq333：用户名（登录名）</p>
+        <p class="ml-20">gitclonedemo：仓库名</p>
+        <p class="ml-20">main：分支名(注意gitHUb主分支为main而不是master)</p>
       </div>
     </div>
     <script>

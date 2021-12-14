@@ -5,10 +5,10 @@
     "description": "fe-segment组件",
     "body": [
       "<fe-segment",
-      "  title=\"基础信息\"",
+      "  title=\"${1}\"",
       "  headerType=\"inline\"",
       ">",
-      "  <fe-segment-item :items=\"basicInfoItems\" />",
+      "  <fe-segment-item :items=\"${2}\" />",
       "</fe-segment>"
     ]
   },
@@ -54,12 +54,15 @@
       "</template>",
       "",
       "<script lang=\"ts\" setup>",
-      "import { ref, reactive, defineComponent } from 'vue';",
+      "import { ref, reactive } from 'vue';",
       "import { useRouter, useRoute } from 'vue-router';",
       "import { useStore } from 'vuex';",
       "import api from '@/api/api';",
+      "import { thousands, valueToLabel } from '@fe/filter';",
+      "import { ElMessage } from 'element-plus';",
       "import { XHR } from '@/utils/XHR';",
       "import { getStorage, arrayGive } from '@fe/utils';",
+      "import { getStorage } from '@fe/utils';",
       "</script>",
       "<style lang=\"postcss\"></style>",
       ""

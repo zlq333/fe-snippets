@@ -28,11 +28,15 @@
   ],
   "activationEvents": [
     "onCommand:extension.gitHubClone",
-    "*"
+    "onCommand:extension.openWebView"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
+      {
+        "command": "extension.openWebView",
+        "title": "打开webview"
+      },
       {
         "command": "extension.gitHubClone",
         "title": "gitHub clone"
@@ -40,6 +44,11 @@
     ],
     "menus": {
       "editor/context": [
+        {
+          "when": "editorFocus",
+          "command": "extension.openWebView",
+          "group": "navigation"
+        },
         {
           "when": "editorFocus",
           "command": "extension.gitHubClone",
@@ -59,20 +68,28 @@
         "path": "./src/snippet/html.json"
       },
       {
+        "language": "html",
+        "path": "./src/snippet/vue.json"
+      },
+      {
         "language": "vue",
         "path": "./src/snippet/html.json"
       },
       {
         "language": "vue",
-        "path": "./src/snippet/ts.json"
+        "path": "./src/snippet/vue.json"
+      },
+      {
+        "language": "vue",
+        "path": "./src/snippet/typeScript.json"
       },
       {
         "language": "javascript",
-        "path": "./src/snippet/ts.json"
+        "path": "./src/snippet/typeScript.json"
       },
       {
         "language": "typescript",
-        "path": "./src/snippet/ts.json"
+        "path": "./src/snippet/typeScript.json"
       }
     ],
     "viewsContainers": {
@@ -89,14 +106,6 @@
         {
           "id": "pig-1",
           "name": "前端组件库"
-        },
-        {
-          "id": "pig-2",
-          "name": "pig-2"
-        },
-        {
-          "id": "pig-3",
-          "name": "pig-3"
         }
       ]
     }
