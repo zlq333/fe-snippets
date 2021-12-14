@@ -1,0 +1,99 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!-- 导入样式 -->
+    <link rel="stylesheet" href="../assets/css/index.css" />
+    <!-- 导入 Vue 3 -->
+    <script src="../assets/js/vue.js"></script>
+    <!-- 导入组件库 -->
+    <script src="../assets/js/element-plus.js"></script>
+    <title>gitAddressSet</title>
+    <style>
+      .content {
+        padding: 100px;
+        background-color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="content">
+        <el-form :model="formData" :rules="formRules" ref="form">
+          <el-form-item label="git地址" prop="address">
+            <el-input
+              v-model.trim="formData.address"
+              placeholder="请输入gitHab/gitLab地址"
+              style="width: 400px; margin-right: 30px"
+            ></el-input>
+            <el-button type="primary" class="ml-10" @click="handleSave"
+              >保存</el-button
+            >
+          </el-form-item>
+        </el-form>
+      </div>
+    </div>
+    <script>
+      const vscode = acquireVsCodeApi();
+      const App = {
+        data() {
+          return {
+            formData: {
+              address: "",
+            },
+            formRules: {
+              address: [
+                {
+                  required: true,
+                  message: "请输入gitHab/gitLab地址",
+                  trigger: "blur",
+                },
+              ],
+            },
+          };
+        },
+        mounted() {
+          window.addEventListener("message", (event) => {
+            const message = event.data; // The JSON data our extension sent
+
+            switch (message.command) {
+              case "refactor":
+                count = Math.ceil(count * 0.5);
+                counter.textContent = count;
+                break;
+            }
+          });
+        },
+        methods: {
+          handleSave() {
+            this.$refs.form.validate((valid) => {
+              if (valid) {
+                vscode.postMessage({
+                  command: "save",
+                  text: this.formData.address,
+                });
+              }
+            });
+          },
+          writeAddress(path, data) {
+            return new Promise(async (resolve, reject) => {
+              try {
+                // 没有文件就创建文件
+                await fs.ensureFile(path);
+                // 写入文件，设置写入文件格式
+                await fs.writeJson(path, data, { spaces: 2 });
+                resolve();
+              } catch (err) {
+                console.error("写入git地址失败");
+                reject(err);
+              }
+            });
+          },
+        },
+      };
+      const app = Vue.createApp(App);
+      app.use(ElementPlus);
+      app.mount("#app");
+    </script>
+  </body>
+</html>

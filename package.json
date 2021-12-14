@@ -12,16 +12,32 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.helloWorld"
+    "onCommand:extension.gitHubClone",
+    "*"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "extension.helloWorld",
-        "title": "Hello World"
+        "command": "extension.gitHubClone",
+        "title": "gitHub copy"
       }
     ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorFocus",
+          "command": "extension.gitHubClone",
+          "group": "navigation"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "extension.gitHubClone",
+          "group": "navigation"
+        }
+      ]
+    },
     "snippets": [
       {
         "language": "html",
@@ -31,7 +47,32 @@
         "language": "typescript",
         "path": "./src/snippet/snippets-ts.json"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "pig-box",
+          "title": "pig pig",
+          "icon": "./src/images/pig_boss.svg"
+        }
+      ]
+    },
+    "views": {
+      "pig-box": [
+        {
+          "id": "pig-1",
+          "name": "前端组件库"
+        },
+        {
+          "id": "pig-2",
+          "name": "pig-2"
+        },
+        {
+          "id": "pig-3",
+          "name": "pig-3"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -54,5 +95,9 @@
     "mocha": "^6.1.4",
     "source-map-support": "^0.5.12",
     "typescript": "^4.2.2"
+  },
+  "dependencies": {
+    "download-git-repo": "^3.0.2",
+    "fs-extra": "^10.0.0"
   }
 }
