@@ -8,6 +8,21 @@
   "engines": {
     "vscode": "^1.32.0"
   },
+  "keywords": [
+    "javascript",
+    "html",
+    "vue",
+    "vscode",
+    "snippet",
+    "api",
+    "reactivity",
+    "composition",
+    "function",
+    "syntax",
+    "template ",
+    "vuejs",
+    "vue.js"
+  ],
   "categories": [
     "Other"
   ],
@@ -41,11 +56,23 @@
     "snippets": [
       {
         "language": "html",
-        "path": "./src/snippet/snippets-html.json"
+        "path": "./src/snippet/html.json"
+      },
+      {
+        "language": "vue",
+        "path": "./src/snippet/html.json"
+      },
+      {
+        "language": "vue",
+        "path": "./src/snippet/ts.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./src/snippet/ts.json"
       },
       {
         "language": "typescript",
-        "path": "./src/snippet/snippets-ts.json"
+        "path": "./src/snippet/ts.json"
       }
     ],
     "viewsContainers": {

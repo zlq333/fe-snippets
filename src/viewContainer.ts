@@ -9,7 +9,6 @@ import * as vscode from "vscode";
 import { join } from "path";
 
 // 创建每一项 label 对应的图片名称
-// 其实就是一个Map集合，用 ts 的写法
 const ITEM_ICON_MAP = new Map<string, string>([
   ["feValidator", "pig_1.svg"],
   ["componentLibrary", "pig_2.svg"],
@@ -59,7 +58,6 @@ export class TreeItemNode extends TreeItem {
 export class TreeViewProvider implements TreeDataProvider<TreeItemNode> {
   // 获取树视图中的每一项 item,所以要返回 element
   getTreeItem(element: TreeItemNode): TreeItem | Thenable<TreeItem> {
-    console.log("element", element);
     return element;
   }
 
@@ -67,6 +65,7 @@ export class TreeViewProvider implements TreeDataProvider<TreeItemNode> {
   getChildren(
     element?: TreeItemNode | undefined
   ): import("vscode").ProviderResult<TreeItemNode[]> {
+    console.log("TreeItemNode", TreeItemNode);
     return ["feValidator", "componentLibrary", "indexOf", "gitAddressSet"].map(
       (item) =>
         new TreeItemNode(

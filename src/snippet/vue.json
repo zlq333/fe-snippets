@@ -1,0 +1,62 @@
+{
+  "v-for": {
+    "prefix": "vFor",
+    "body": ["v-for=\"${1:item} in ${2:items}\" :key=\"${3:item.id}\""],
+    "description": "Expects: Array | Object | number | string"
+  },
+  "v-model": {
+    "prefix": "vModel",
+    "body": ["v-model=\"${1:something}\""],
+    "description": "Expects: varies based on value of form inputs element or output of components"
+  },
+  "key": {
+    "prefix": "key",
+    "body": [":key=\"${1:key}\""],
+    "description": "Expects: string. Children of the same common parent must have unique keys. Duplicate keys will cause render errors."
+  },
+  "before-enter": {
+    "prefix": "beforeEnterEvent",
+    "body": ["@before-enter=\"$1\"$0"],
+    "description": "@before-enter=''"
+  },
+  "before-leave": {
+    "prefix": "beforeLeaveEvent",
+    "body": ["@before-leave=\"$1\"$0"],
+    "description": "@before-leave=''"
+  },
+  "after-enter": {
+    "prefix": "afterEnterEvent",
+    "body": ["@after-enter=\"$1\"$0"],
+    "description": "@after-enter=''"
+  },
+  "after-leave": {
+    "prefix": "afterLeaveEvent",
+    "body": ["@after-leave=\"$1\"$0"],
+    "description": "@after-leave=''"
+  },
+  "routerLink": {
+    "prefix": "routerLink",
+    "body": ["router-link $0"],
+    "description": "router-link element"
+  },
+  "routerLinkTo": {
+    "prefix": "routerLinkTo",
+    "body": ["router-link (to=\"$1\") $0"],
+    "description": "router-link (to='') . router-link element"
+  },
+  "to": {
+    "prefix": "to",
+    "body": ["to=\"$1\"$0"],
+    "description": "to=''"
+  },
+  "tag": {
+    "prefix": "tag",
+    "body": ["tag=\"$1\"$0"],
+    "description": "tag=''"
+  },
+  "routerView": {
+    "prefix": "routerView",
+    "body": ["router-view $0"],
+    "description": "router-view element"
+  }
+}
