@@ -20,10 +20,10 @@ const writeAddress = (path: any, data: any) => {
       await fs.ensureFile(path);
       // 写入文件，设置写入文件格式
       await fs.writeJson(path, data, { spaces: 2 });
-
+      vscode.window.showInformationMessage("保存成功！");
       resolve();
     } catch (err) {
-      console.error("写入git地址失败");
+      vscode.window.showInformationMessage("写入git地址失败");
       reject(err);
     }
   });
@@ -72,7 +72,6 @@ export function createWebView(
         console.log("message", message);
         switch (message.command) {
           case "save":
-            vscode.window.showErrorMessage(message.text);
             writeAddress("D:/vsceDownloud/gitHubAddress.json", {
               address: message.text,
             });
@@ -99,7 +98,6 @@ export function createWebView(
 module.exports = function (context: vscode.ExtensionContext) {
   context.subscriptions.push(
     vscode.commands.registerCommand("itemClick", (label) => {
-      // vscode.ViewColumn.Active: 表示当前选中的面板
       const webView = createWebView(context, vscode.ViewColumn.One, label);
       context.subscriptions.push(webView);
     })

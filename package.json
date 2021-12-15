@@ -2,12 +2,13 @@
   "name": "fe-snippets",
   "displayName": "fe-snippets",
   "description": "fe-snippets for VS Code",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "zlqqq333",
   "repository": "https://github.com/zlq333/fe-snippets.git",
   "engines": {
     "vscode": "^1.32.0"
   },
+  "icon": "src/images/icon.png",
   "keywords": [
     "javascript",
     "html",

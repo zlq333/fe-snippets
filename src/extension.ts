@@ -5,9 +5,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   const disposable = vscode.commands.registerCommand(
     "extension.openWebView",
-    () => {
-      vscode.window.showInformationMessage("Hello World!");
-    }
+    () => {}
   );
 
   context.subscriptions.push(disposable);

@@ -31,24 +31,24 @@ module.exports = function (context: vscode.ExtensionContext) {
         const filePath = `${space}:/${arr[1]}`;
         console.log("filePath", filePath);
 
-        // const gitUrl = "github:zlq333/gitclonedemo#main";
         const data = await getGitAddress();
-        const gitUrl = data.address;
+        let gitUrl = data.address;
         console.log("gitUrl", gitUrl);
+        gitUrl = gitUrl ? gitUrl : "github:zlq333/gitclonedemo#main";
 
         fs.stat(filePath, (err: any, data: any) => {
           if (err) {
-            console.log("判断失败", err);
+            vscode.window.showErrorMessage("判断失败", err);
             return;
           }
           if (data.isFile()) {
             downloadGitRepo(gitUrl, "D:/vsceDownloud", (err: any) => {
-              console.log(err ? err : "success");
+              vscode.window.showErrorMessage(err ? err : "success");
               fs.readdir("D:/vsceDownloud", (err: any, fileList: any) => {
                 if (err) {
-                  console.log("读取文件列表失败", err);
+                  vscode.window.showErrorMessage("读取文件列表失败", err);
                 }
-                console.log(fileList);
+                vscode.window.showErrorMessage(fileList);
                 let flag = false;
                 fileList.forEach((item: any) => {
                   if (item == fileName) {
@@ -60,12 +60,12 @@ module.exports = function (context: vscode.ExtensionContext) {
                   : `D:/vsceDownloud/${fileList[0]}`;
                 fs.readFile(name, (err: any, content: any) => {
                   if (err) {
-                    console.log("读取文件内容失败", err);
+                    vscode.window.showErrorMessage("读取文件内容失败", err);
                     return;
                   }
                   fs.writeFile(filePath, content, (err: any) => {
                     if (err) {
-                      console.log("写入失败", err);
+                      vscode.window.showErrorMessage("写入失败", err);
                       return;
                     }
                   });
